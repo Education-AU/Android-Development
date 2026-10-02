@@ -1,0 +1,14 @@
+{
+  "name": "slides01",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node node_modules/@michelvhoward/templates/build.js",
+    "dev": "node node_modules/@michelvhoward/templates/build.js dev",
+    "build": "node node_modules/@michelvhoward/templates/build.js"
+  },
+  "dependencies": {
+    "@michelvhoward/templates": "^2.0.0"
+  }
+}

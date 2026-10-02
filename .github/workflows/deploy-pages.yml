@@ -1,0 +1,63 @@
+name: Deploy lessons to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  packages: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: https://npm.pkg.github.com
+          scope: '@michelvhoward'
+      - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GH_TOKEN }}
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium
+      - name: Build Lesson01
+        run: |
+          npm run build
+          mkdir -p site/Lesson01
+          cp -R dist/. site/Lesson01/
+          cp site/Lesson01/slides.html site/Lesson01/index.html
+      - name: Build Lesson02 when its project is added
+        if: ${{ hashFiles('Lesson02/package.json') != '' }}
+        working-directory: Lesson02
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          npm run build
+          mkdir -p ../site/Lesson02
+          cp -R dist/. ../site/Lesson02/
+          cp ../site/Lesson02/slides.html ../site/Lesson02/index.html
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GH_TOKEN }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
