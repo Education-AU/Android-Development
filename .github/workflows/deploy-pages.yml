@@ -35,16 +35,16 @@ jobs:
         working-directory: Lesson01
         run: |
           node ../node_modules/@michelvhoward/templates/build.js --project
-          mkdir -p ../site/Lesson01
-          cp -R dist/. ../site/Lesson01/
-          cp ../site/Lesson01/slides.html ../site/Lesson01/index.html
+          mkdir -p ../site/Lesson01/slides
+          cp -R dist/. ../site/Lesson01/slides/
+          cp ../site/Lesson01/slides/slides.html ../site/Lesson01/slides/index.html
       - name: Build Lesson02
         working-directory: Lesson02
         run: |
           node ../node_modules/@michelvhoward/templates/build.js --project
-          mkdir -p ../site/Lesson02
-          cp -R dist/. ../site/Lesson02/
-          cp ../site/Lesson02/slides.html ../site/Lesson02/index.html
+          mkdir -p ../site/Lesson02/slides
+          cp -R dist/. ../site/Lesson02/slides/
+          cp ../site/Lesson02/slides/slides.html ../site/Lesson02/slides/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
