@@ -32,22 +32,19 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install chromium
       - name: Build Lesson01
+        working-directory: Lesson01
         run: |
-          npm run build
-          mkdir -p site/Lesson01
-          cp -R dist/. site/Lesson01/
-          cp site/Lesson01/slides.html site/Lesson01/index.html
-      - name: Build Lesson02 when its project is added
-        if: ${{ hashFiles('Lesson02/package.json') != '' }}
+          node ../node_modules/@michelvhoward/templates/build.js --project
+          mkdir -p ../site/Lesson01
+          cp -R dist/. ../site/Lesson01/
+          cp ../site/Lesson01/slides.html ../site/Lesson01/index.html
+      - name: Build Lesson02
         working-directory: Lesson02
         run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
-          npm run build
+          node ../node_modules/@michelvhoward/templates/build.js --project
           mkdir -p ../site/Lesson02
           cp -R dist/. ../site/Lesson02/
           cp ../site/Lesson02/slides.html ../site/Lesson02/index.html
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_GH_TOKEN }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
