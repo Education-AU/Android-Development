@@ -1,5 +1,7 @@
 ---
-title: Android Development Lesson 01
-subtitle: Exercises
-template: Section
+title: Exercises 
+subtitle: Person Card
+template: section
+footerVariant: light
+className: slide--title
 ---

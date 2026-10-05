@@ -1,6 +1,9 @@
 ---
 title: Gradle
-template: Section
+subtitle: A short look at Gradle
+template: section
+footerVariant: light
+className: slide--title
 ---
 
 1. Gradle files
