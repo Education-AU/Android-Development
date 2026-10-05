@@ -9,6 +9,6 @@
     "build": "node node_modules/@michelvhoward/templates/build.js"
   },
   "dependencies": {
-    "@michelvhoward/templates": "^2.5.0"
+    "@michelvhoward/templates": "^2.6.0"
   }
 }
