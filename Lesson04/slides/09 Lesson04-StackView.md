@@ -1,6 +1,6 @@
 ---
 title: Activities
-template: Default
+template: default
 ---
 The whole process can be visualized on the backstack
 
