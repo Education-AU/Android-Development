@@ -1,6 +1,5 @@
 ---
 title: Android Development Lesson 02
-subtitle: Activities
+subtitle: Composables in some detail
 template: title
 ---
-Something
