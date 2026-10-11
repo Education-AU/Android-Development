@@ -24,17 +24,14 @@ fun DirectCatchException() {
     val scope = rememberCoroutineScope()
     Column {
         Button(onClick = { counter.value += 1 }) { Text("The Counter:${counter.value}") }
-        Button(onClick = {
-            scope.launch() {
+        Button(onClick = {scope.launch() {
                 try {
                     delay(1000);Log.v("ScopeFetchException", "before exception")
                     throw Exception("test"); fetchState.value += fetchSuspend()
                 } catch (e: Exception) {
                     Log.v("Caught Directly", "Caught exception: ${e.message}")
                     if (e is CancellationException) {
-                        throw e;
-                    }
-                }}
+                        throw e;}}}
             scope.launch() {
                 delay(2000)
                 fetchState.value += fetchSuspend() + "SECOND CALL"

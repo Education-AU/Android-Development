@@ -18,25 +18,20 @@ And also the scope is kept alive after the first coroutine fails, so we can laun
 fun SuperVisorScopeFetchException() {
     val counter = remember { mutableStateOf(0) }
     val fetchState = remember { mutableStateOf("Initial") }
-    val handle = CoroutineExceptionHandler { _, exc ->
-        Log.v("HANDLER", exc.message.toString())
-    }
+    val handle = CoroutineExceptionHandler { _, exc ->Log.v("HANDLER", exc.message.toString())}
     val supervisorJob = SupervisorJob()
     val scope = rememberCoroutineScope() + supervisorJob
     Column {
         Button(onClick = {counter.value += 1}) {Text("The Counter:${counter.value}")}
-        Button(onClick = {
-            scope.launch(handle) {// not enough
+        Button(onClick = {scope.launch(handle) {// not enough
                 delay(1000)
                 Log.v("ScopeFetchException", "before exception")
                 throw Exception("test")
-                fetchState.value += fetchSuspend()
-            }
+                fetchState.value += fetchSuspend()}
             scope.launch(handle) {
                 delay(2000)
                 fetchState.value += fetchSuspend() + "SECOND CALL"
-                Log.v("ScopeFetchException", "Is never called?")
-            }
+                Log.v("ScopeFetchException", "Is never called?")}
         }) {Text("Scope fetch:${fetchState.value}")}}}
 ```
 
