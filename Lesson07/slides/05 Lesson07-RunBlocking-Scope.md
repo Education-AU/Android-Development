@@ -1,6 +1,6 @@
 ---
 title: Run Blocking
-template: Default
+template: default
 ---
 
 <div class="center-left">

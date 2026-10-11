@@ -1,6 +1,6 @@
 ---
 title: What are Coroutines
-template: Default
+template: default
 ---
 
 <div class="center-left">

@@ -1,6 +1,6 @@
 ---
 title: Coroutine Builders
-template: Default
+template: default
 ---
 
 <div class="center-left">

@@ -1,6 +1,6 @@
 ---
 title: Coroutine Scopes
-template: Default
+template: default
 ---
 
 <div class="center-left">
