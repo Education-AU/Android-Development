@@ -1,5 +1,6 @@
 ---
 title: Exceptions in coroutines
+showFooter: false
 template: two-column
 ---
 

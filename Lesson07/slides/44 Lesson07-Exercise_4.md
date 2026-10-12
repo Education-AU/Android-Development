@@ -1,5 +1,5 @@
 ---
-title: Exercise 2
+title: Exercise 4
 template: two-column
 eyebrow: Android Exercise
 ---
@@ -21,6 +21,7 @@ in color red
 
 Implement in such a way that the count is unblocked
 
+*Solution is in downloads in the download slide*
 <!-- column -->
 
 <img src="assets/images/Exercise_4_app.png" alt="Exercise 4 app" style="max-height: 500px; max-width: 100%; object-fit: contain;">

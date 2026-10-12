@@ -42,7 +42,7 @@ fun main() {
 
 The launch coroutine builder starts a coroutine in the enclosing scope and returns a reference to the coroutine as a
 job.
-It is important to understand how these coroutines (jobs) are scheduled, here on the main thread
+It is important to understand how these coroutines (jobs) are scheduled, here specifically on the main thread
 
 
 

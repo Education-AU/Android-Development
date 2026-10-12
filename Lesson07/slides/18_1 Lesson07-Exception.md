@@ -26,14 +26,15 @@ We see that
 
 1. The `RunBlocking` start its `delayAndPrint` nothing happened yet
 2. The `Job 1` started, and it started its child jobs `Job 11` and `Job 12` nothing happened yet
-3. The `Job 12` finished its delay and printed the message
-4. Now the exception is thrown from Job12
-5. The exception is propagated to it's parent `Job1` which is canceled
-6. This is seen by the caught `CancellationException`
-7. The exception is propagated to its children resulting in cancellation of `job11`
-8. The exception is propagated to the `RunBlocking` which is canceled and the exception propagated to main thread
+3. The child job `Job 11` started
+4. The child job `Job 12` started
+5. The `Job 12` finished its delay and printed the message. Now the exception is thrown from Job12
+6. The exception is propagated to its parent `Job1` which cancels sibling `Job 11`, which can be seen by catch and
+   rethrow of `CancellationException` in `Job 11`
+7. The parent job `Job1` is canceled,which can be seen by catch and rethrow of `CancellationException` in `Job 1`
+8. The exception thrown propagates to calling thread
 
 **Here we make a very important observation:**
 
 `CancellationException` is a special exception that is used by the framework for
-cancellation of coroutines it should NOT be caught without rethrow
+cancellation of coroutines it should **NOT be caught without rethrow**

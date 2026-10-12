@@ -9,7 +9,7 @@ fun main() {
             delayAndPrint(5000, "Job1 started ", "Job1 Done NOT CANCELLED ")
         }
         val job2 = launch {
-            delayAndPrint(1000, "Job2 started ", "Job2 Done NOT CANCELLED")
+            delayAndPrint(1000, "Job2 started ", "Job2 Done NOT CANCELLED ")
             throw IllegalArgumentException("Job2 failed with an exception")
         }
 

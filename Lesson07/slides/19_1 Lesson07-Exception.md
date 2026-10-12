@@ -9,8 +9,8 @@ template: two-column
 `supervisorScope` is similar to `coroutineScope`: both create a child scope and wait for all their children to finish.
 The key difference is **failure isolation**.
 
-- In `coroutineScope`, a child's failure fails the scope and cancels its other children.
-- In `supervisorScope`, a child's failure does not fail the scope, cancel its other children, or fail the parent.
+- In `coroutineScope`, a child's failure fails the parent scope inturn cancelling its other siblings.
+- In `supervisorScope`, a child's failure does not cancel the supervisor scope or its other siblings, nor does it fail the parent.
 
 A normal child `launch` delegates its failure to its parent, so a `CoroutineExceptionHandler` attached to that child is not used.
 A direct child `launch` of `supervisorScope` reports its own uncaught exception through its handler.

@@ -9,7 +9,20 @@ We must not catch `CancellationExceptions` without rethrowing them, because they
 we catch them and do not rethrow them, the coroutine will not be canceled as expected.
 
 This is seen from this example:
-
+```text
+From Run Blocking main @coroutine#1
+Job 1 started main @coroutine#2
+Job 11 started main @coroutine#3
+Job 12 started main @coroutine#4
+Done from job 12 NOT CANCELEDWaited for 3000 ms before executing on main @coroutine#4
+Job 11 failed with an exception of type JobCancellationException: Parent job is Cancelling
+Job 11 completed successfully
+Job 1 failed with an exception of type JobCancellationException: StandaloneCoroutine is cancelling
+Exception in thread "main" java.lang.IllegalArgumentException: Job 12 failed with an exception
+at FileKt$main$1$job1$1$job12$1.invokeSuspend (File.kt:22)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith (ContinuationImpl.kt:34)
+at kotlinx.coroutines.DispatchedTaskKt.resume (DispatchedTask.kt:235)
+```
 <!-- column -->
 
 ```kotlin

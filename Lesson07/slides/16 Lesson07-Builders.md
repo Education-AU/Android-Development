@@ -35,3 +35,4 @@ fun main() {
 8. From independent Scope 2 DefaultDispatcher-worker-1 @coroutine#2
 9. Waited for 1000 ms before executing on DefaultDispatcher-worker-1 @coroutine#2
 ```
+The statement `job.join()` waits for the completion of the coroutine represented by the `job` before proceeding.

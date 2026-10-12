@@ -1,5 +1,5 @@
 ---
-title: Exercise 2
+title: Exercise 2 Solution
 template: default
 showFooter: false
 codeSource: assets/kotlin/Excercise_2_Solution.kt

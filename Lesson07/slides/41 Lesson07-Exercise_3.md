@@ -1,5 +1,5 @@
 ---
-title: Exercise 2
+title: Exercise 3
 template: default
 eyebrow: Pure Kotlin Exercise
 ---
