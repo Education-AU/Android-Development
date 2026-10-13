@@ -33,7 +33,7 @@ jobs:
         run: npx playwright install chromium
       - name: Build Lessons 01 through 06
         run: |
-          for lesson in Lesson01 Lesson02 Lesson03 Lesson04 Lesson05 Lesson06 Lesson07; do
+          for lesson in Lesson01 Lesson02 Lesson03 Lesson04 Lesson05 Lesson06 Lesson07 Lesson08; do
             (
               cd "$lesson"
               node ../node_modules/@michelvhoward/templates/build.js --project

@@ -1,6 +1,6 @@
 ---
 title: Android Development Lesson 08
-subtitle: Kotlin Coroutines
+subtitle: Http Client
 template: title
 
 ---
