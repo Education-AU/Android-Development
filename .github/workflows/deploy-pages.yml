@@ -31,9 +31,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GH_TOKEN }}
       - name: Install Playwright Chromium
         run: npx playwright install chromium
-      - name: Build Lessons 01 through 06
+      - name: Build Lessons 01 through 10
         run: |
-          for lesson in Lesson01 Lesson02 Lesson03 Lesson04 Lesson05 Lesson06 Lesson07 Lesson08 Lesson09; do
+          for lesson in Lesson01 Lesson02 Lesson03 Lesson04 Lesson05 Lesson06 Lesson07 Lesson08 Lesson09 Lesson10; do
             (
               cd "$lesson"
               node ../node_modules/@michelvhoward/templates/build.js --project
