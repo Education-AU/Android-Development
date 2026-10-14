@@ -1,5 +1,5 @@
 ---
-title: Sha Fingerprint
+title: API Key
 template: two-column
 
 ---

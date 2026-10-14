@@ -1,6 +1,6 @@
 ---
-title: Android Development Lesson 09
-subtitle: FireBase/FireStore & Authentication
+title: Android Development Lesson 10
+subtitle: GPS Services and Maps
 template: title
 
 ---
