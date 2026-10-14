@@ -1,0 +1,4 @@
+---
+title: Exercises
+template: section
+---
