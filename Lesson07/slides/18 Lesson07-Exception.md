@@ -43,7 +43,5 @@ fun main() {
                 throw e
             }
             delayAndPrint(6000, "From Run Blocking ", "from run blocking NOT CANCELED")
-        }
-    }
-}
+        }}}
 ```
