@@ -12,7 +12,7 @@ stream,and return a response object instead.
 ```kotlin
 override suspend fun get(date: LocalDate): NasaResponse {
     try {
-        val url = "$BASE_URL&date=${date.format(DateTimeFormatter.ISO_LOCAL_DATE)}"
+        val url = "${BASE_URL}${date.format(formatter)}"
         val response = client.get {
             url(url)
         }

@@ -8,10 +8,10 @@ As before we configure the client and provide base url for the service.
 ```kotlin
 class KtorAPodService : NasaApod {
     companion object {
+        private val formatter = DateTimeFormatter.ofPattern("yyMMdd")
         private const val BASE_URL =
-            "https://api.nasa.gov/planetary/apod?api_key=${BuildConfig.NASA_API_KEY}"
+            "https://science.nasa.gov/wp-json/wp/v2/apod-basic/"
     }
-}
 ```
 
 

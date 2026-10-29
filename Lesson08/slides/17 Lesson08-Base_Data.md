@@ -2,17 +2,15 @@
 title: NASA APOD
 template: two-column
 ---
-The base url is a GET from base url: https://api.nasa.gov/planetary/apod
 
-With possible query parameters
+It is possible to use various parameters to obtain different results from the NASA APOD API.
 
-Api_key is required
+These are listed in the table
 
-**And very important:** 
 
-The http header `UserAgent` is required.  In the example given we chose `UserAgent=“NasaApp/1.0”`
 
-You can call your agent anything probably  
+
+
 
 
 <!-- column -->
